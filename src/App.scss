@@ -1,0 +1,100 @@
+$padWidth: 100px;
+$padHeight: 80px;
+@import url('https://fonts.googleapis.com/css?family=Electrolize');
+
+/*Need to figure out how to make inner-select, outer-select visible!!!! */
+
+body {
+    font-family: 'Electrolize', sans-serif;
+    background-color: lighten(black, 25%);
+    color: #04FE19;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+  }
+
+  .inner-container {
+    display: flex;
+    border: 5px solid #04FE19;
+    border-radius: 10px;
+    position: relative;
+    width: fit-content;
+    padding: 3em;
+    text-align: center;
+    background-color: lighten(black, 50%);
+    .pad-bank {
+      width: auto;
+      height: auto;
+      display: grid;
+      grid-template-columns: 10vw 10vw 10vw;
+      grid-template-rows: 10vw 10vw 10vw;
+      margin: 1em;
+    } 
+    .drum-pad {
+    position: relative;
+    float: left;
+    width:  $padWidth; 
+    height: $padHeight; 
+    margin-right: 10px;
+    border-radius: 5px;
+    padding-top: 35px;
+    box-sizing: border-box;
+    cursor: pointer;
+    }
+
+    .controls-container {
+      height: auto;
+      display: grid;
+      grid-column-start: 2;
+      margin: 30px 10px;
+      vertical-align: top;
+      .control {
+        width: auto;
+        margin: auto;
+      p {
+        margin-bottom: 0;
+      }
+      .select {
+      @extend .outer-select;
+        .inner {
+          @extend .inner-select;
+        }
+      }
+    }
+  }
+
+    #display {
+        width: auto;
+        background-color: rgba(128, 128, 128, 15%);
+        margin: 15px auto;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+    }
+
+
+  .outer-select {
+    margin: auto;
+    border: 1px solid black;
+    width: 50px;
+    height: 20px;
+    padding: 1px;
+    background-color: black;
+  }
+  
+  .inner-select {
+    width: 23px;
+    height: 19px;
+    background: rgb(0, 225, 255);
+    border: 1px solid black;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 650px) {
+    .inner-container {
+      transform: scale(0.7);
+    }
+  }
+
